@@ -24,7 +24,7 @@ export default function Header() {
         </h1>
         <div className="hidden md:flex flex-row justify-center text-base mb-28">
           {pages.map((page) => (
-            <Link href={page.url}>
+            <Link key={page.title} href={page.url}>
               <a
                 className={`px-4 text-sm hover:text-orange ${
                   router.asPath === page.url ? "text-orangeDark" : "text-brown"

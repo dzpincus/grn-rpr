@@ -6,7 +6,12 @@ export default function Home() {
   return (
     <>
       <div className="py-10 flex justify-center bg-gradient-to-r from-gradientOrange to-gradientPurple">
-        <Image src="/GrinReaper.png" width={346} height={469} />
+        <Image
+          alt="Grin Reaper Logo"
+          src="/GrinReaper.png"
+          width={346}
+          height={469}
+        />
       </div>
       <div className="bg-tan grid grid-cols-1 justify-items-center">
         <h1 className="text-center text-black text-2xl font-serif pt-24 font-medium">
@@ -17,12 +22,13 @@ export default function Home() {
         <span className="text-3xl py-10">&mdash;</span>
         <p className="text-center text-brownDark w-1/2 font-extralight">
           The Grin Reaper is a growing collective that promotes cathartic
-          exploration and radical self-acceptance. It's spearheaded by Sasha
-          Pincus, a Death Doula and Creative Healer based in Long Beach, NY.
+          exploration and radical self-acceptance. It&apos;s spearheaded by
+          Sasha Pincus, a Death Doula and Creative Healer based in Long Beach,
+          NY.
         </p>
         <Link href="/members">
           <button
-            className="my-10 py-2 px-6 font-normal text-xl text-white rounded-2xl bg-gradient-to-r from-buttonGradient1 to-buttonGradient2 hover:from-buttonGradient2 hover:to-buttonGradient1"
+            className="my-10 py-2 px-6 font-normal text-xl text-white rounded-2xl bg-gradient-to-tl from-buttonGradient1 to-buttonGradient2 hover:from-buttonGradient2 hover:to-buttonGradient1"
             type="button"
           >
             Get Involved
@@ -34,7 +40,12 @@ export default function Home() {
         style={{ height: "890px" }}
       >
         <div className="h-full w-full max-h-full max-w-full relative flex justify-center items-center">
-          <Image src="/Abstract4.JPG" layout="fill" quality={100} />
+          <Image
+            alt="Abstract art"
+            src="/Abstract4.JPG"
+            layout="fill"
+            quality={100}
+          />
           <span className="text-white text-3xl font-serif relative">
             See you there.
           </span>
@@ -47,6 +58,7 @@ export default function Home() {
       >
         <div className="h-full w-full max-h-full max-w-full relative flex justify-center items-center">
           <Image
+            alt="Abstract art"
             src="/Abstract4.JPG"
             layout="fill"
             objectFit="cover"
