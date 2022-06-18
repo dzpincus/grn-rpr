@@ -22,7 +22,11 @@ export default function Header() {
           <span className="italic">rin </span>R
           <span className="italic">eaper</span>
         </h1>
-        <div className="hidden md:flex flex-row justify-center text-base mb-28">
+        <div
+          className={`hidden md:flex flex-row justify-center text-base ${
+            router.asPath === "/" ? "mb-28" : "mb-4"
+          }`}
+        >
           {pages.map((page) => (
             <Link key={page.title} href={page.url}>
               <a

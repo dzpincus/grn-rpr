@@ -68,7 +68,6 @@ export default function Home() {
             See you there.
           </span>
         </div>
-        <div className="bg-tanDark"></div>
       </div>
     </>
   );
