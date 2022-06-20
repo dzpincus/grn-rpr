@@ -11,6 +11,7 @@ export default function Home() {
           src="/GrinReaper.png"
           width={346}
           height={469}
+          priority
         />
       </div>
       <div className="bg-tan grid grid-cols-1 justify-items-center">

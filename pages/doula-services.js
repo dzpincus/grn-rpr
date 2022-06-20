@@ -47,6 +47,7 @@ export default function DeathDoulaServices() {
               objectFit="cover"
               objectPosition="50% 0%"
               quality={100}
+              priority
             />
           </div>
           <div className="pt-10 pb-8 z-50 sm:w-1/2 sm:absolute sm:left-1/4 sm:-bottom-32 sm:text-center bg-tan text-brown px-10">

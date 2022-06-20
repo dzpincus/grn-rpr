@@ -54,6 +54,7 @@ export default function CreativeHealing() {
                 src="/Unsplash 3.jpg"
                 layout="fill"
                 className="rounded-full"
+                priority
               />
             </div>
           </div>

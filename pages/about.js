@@ -12,6 +12,7 @@ export default function About() {
               objectFit="cover"
               objectPosition="50% 25%"
               layout="fill"
+              priority
             />
           </div>
           <div className="hidden sm:block row-start-1 col-start-1 col-span-full self-center relative h-full contrast-150">
@@ -31,6 +32,7 @@ export default function About() {
                 src="/Headshot1.png"
                 objectFit="cover"
                 layout="fill"
+                priority
               />
             </div>
             <div className="sm:w-1/2 bg-white text-brown px-4 sm:px-10 py-12">
