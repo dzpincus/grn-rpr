@@ -1,4 +1,5 @@
 import Header from "./header";
+import Footer from "./footer";
 
 export default function Layout({ children }) {
   return (
@@ -6,7 +7,7 @@ export default function Layout({ children }) {
       <div className="flex flex-col min-h-screen">
         <Header></Header>
         <main className="grow">{children}</main>
-        <footer className="bg-purple h-36 w-full"></footer>
+        <Footer></Footer>
       </div>
     </>
   );

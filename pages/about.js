@@ -4,7 +4,7 @@ export default function About() {
   return (
     <>
       <div className="sm:h-screen sm:mb-1">
-        <div class="flex flex-col sm:grid sm:grid-cols-10 sm:grid-rows-2 h-full">
+        <div className="flex flex-col sm:grid sm:grid-cols-10 sm:grid-rows-2 h-full">
           <div className="flex sm:hidden relative" style={{ height: "250px" }}>
             <Image
               alt="Headshot"
@@ -14,7 +14,7 @@ export default function About() {
               layout="fill"
             />
           </div>
-          <div class="hidden sm:block row-start-1 col-start-1 col-span-full self-center relative h-full contrast-150">
+          <div className="hidden sm:block row-start-1 col-start-1 col-span-full self-center relative h-full contrast-150">
             <Image
               alt="Abstract art"
               src="/Abstract2.jpg"
@@ -23,7 +23,7 @@ export default function About() {
               quality={100}
             />
           </div>
-          <div class="z-30 sm:self-end sm:row-span-full sm:col-start-3 sm:col-end-9 bg-white flex flex-row">
+          <div className="z-30 sm:self-end sm:row-span-full sm:col-start-3 sm:col-end-9 bg-white flex flex-row">
             <div className="relative hidden sm:block sm:w-1/2">
               <Image
                 className="col-span-1"
@@ -33,8 +33,8 @@ export default function About() {
                 layout="fill"
               />
             </div>
-            <div className="sm:w-1/2 bg-white text-brownDark font-serif px-4 sm:px-10 py-12">
-              <h1 className="text-3xl">Hi there!</h1>
+            <div className="sm:w-1/2 bg-white text-brown px-4 sm:px-10 py-12">
+              <h1 className="text-3xl font-serif">Hi there!</h1>
               <p>
                 <br />
                 My name is Sasha.
@@ -72,7 +72,7 @@ export default function About() {
           </div>
 
           <div
-            class="block sm:hidden relative contrast-150 w-full"
+            className="block sm:hidden relative contrast-150 w-full"
             style={{ height: "200px" }}
           >
             <Image

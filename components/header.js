@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-tan">
+      <header className="bg-tan z-50">
         <h1 className="text-center text-black text-2xl font-serif tracking-widest pt-24 pb-20 font-medium">
           T<span className="italic">he </span>G
           <span className="italic">rin </span>R
@@ -31,7 +31,9 @@ export default function Header() {
             <Link key={page.title} href={page.url}>
               <a
                 className={`px-4 text-sm hover:text-orange ${
-                  router.asPath === page.url ? "text-orangeDark" : "text-brown"
+                  router.asPath === page.url
+                    ? "text-orangeDark"
+                    : "text-brownLight"
                 }`}
               >
                 {page.title}
