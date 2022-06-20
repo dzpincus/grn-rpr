@@ -39,21 +39,21 @@ export default function About() {
                 <br />
                 My name is Sasha.
                 <br />​<br />
-                I&APOS;m a certified Death Doula and a Creative Healer.
+                I&apos;m a certified Death Doula and a Creative Healer.
                 <br />
-                I&APOS;m also just a lady who sincerely wants to talk about your
+                I&apos;m also just a lady who sincerely wants to talk about your
                 feelings.
                 <br />
-                That might be hard to believe, but I&APOS;ve ruined enough
-                parties to say with absolute certainty that it&APOS;s true.
+                That might be hard to believe, but I&apos;ve ruined enough
+                parties to say with absolute certainty that it&apos;s true.
                 <br />
                 <br />I earned my Doula certification from the University of
-                Vermont during the summer of 2020. I can&APOS;t bake bread to
+                Vermont during the summer of 2020. I can&apos;t bake bread to
                 save my life so I decided to learn a lot about death instead.
-                <br />​<br />I will complete my Master&APOS;s in Creative Arts
+                <br />​<br />I will complete my Master&apos;s in Creative Arts
                 Therapy this August.
                 <br />​<br />
-                If you&APOS;re wondering why you should trust a baby bird to
+                If you&apos;re wondering why you should trust a baby bird to
                 help your heart, please know that I am thirty. I have a young
                 face and took the scenic route to the start of my career, but
                 for that I am all the wiser (and much more good humored).

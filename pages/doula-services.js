@@ -6,13 +6,13 @@ const sections = [
     title: "Psychospiritual Support",
     icon: "/psycho.svg",
     description:
-      "Removing the stigma from death does not mean removing emotion. It&APOS;s normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
+      "Removing the stigma from death does not mean removing emotion. It&apos;s normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
   },
   {
     title: "Companioning",
     icon: "/companioning.svg",
     description:
-      "Company. It&APOS;s a simple but powerful offering for anyone, including those approaching death. Whether we&APOS;re reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another&APOS;s journey. ",
+      "Company. It&apos;s a simple but powerful offering for anyone, including those approaching death. Whether we&apos;re reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another&apos;s journey. ",
   },
   {
     title: "Project Management",
@@ -57,7 +57,7 @@ export default function DeathDoulaServices() {
             </h1>
             <p className="text-justify text-sm">
               For many people, death is tragic, terrifying, taboo, or
-              intolerably isolating. It doesn&APOS;t have to be.
+              intolerably isolating. It doesn&apos;t have to be.
               <br /> <br />
               As a Death Doula, I work with people who are approaching the end
               of life. I offer psycho-spiritual support, and help make necessary
