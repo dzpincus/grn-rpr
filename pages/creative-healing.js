@@ -1,5 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+import unsplash3 from "../public/Unsplash 3.jpg";
+import individual from "../public/Individual Sessions.jpg";
+import group from "../public/Group Sessions.jpg";
+import events from "../public/Events.jpg";
 
 export default function CreativeHealing() {
   return (
@@ -50,8 +53,9 @@ export default function CreativeHealing() {
           <div className="w-full mt-4 sm:mt-0 sm:ml-10 sm:col-start-5 sm:col-span-4 flex place-content-center">
             <div className="flex items-center relative sm:h-full sm:w-full h-72 w-72">
               <Image
+                loading="eager"
                 alt="Unsplash"
-                src="/Unsplash 3.jpg"
+                src={unsplash3}
                 layout="fill"
                 className="rounded-full"
                 priority
@@ -62,10 +66,11 @@ export default function CreativeHealing() {
         <div className="grid grid-rows-3 sm:grid-rows-1 sm:grid-cols-3 h-fit text-brownDark">
           <div className="relative h-64 sm:h-96 sm:py-80">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 1"
-              src="/Individual Sessions.jpg"
+              src={individual}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
@@ -80,10 +85,11 @@ export default function CreativeHealing() {
           </div>
           <div className="relative">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 2"
-              src="/Group Sessions.jpg"
+              src={group}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
@@ -97,10 +103,11 @@ export default function CreativeHealing() {
           </div>
           <div className="relative">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 3"
-              src="/Events.jpg"
+              src={events}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">

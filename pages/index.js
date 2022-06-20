@@ -1,14 +1,16 @@
-import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
+
+import logo from "../public/GrinReaper.png";
+import Abstract4 from "../public/Abstract4.JPG";
 
 export default function Home() {
   return (
     <>
       <div className="py-10 flex justify-center bg-gradient-to-r from-gradientOrange to-gradientPurple">
         <Image
+          loading="eager"
           alt="Grin Reaper Logo"
-          src="/GrinReaper.png"
+          src={logo}
           width={346}
           height={469}
           priority
@@ -34,8 +36,9 @@ export default function Home() {
       >
         <div className="h-full w-full max-h-full max-w-full relative flex justify-center items-center">
           <Image
+            loading="eager"
             alt="Abstract art"
-            src="/Abstract4.JPG"
+            src={Abstract4}
             layout="fill"
             quality={100}
           />
@@ -50,8 +53,9 @@ export default function Home() {
       >
         <div className="h-full w-full max-h-full max-w-full relative flex justify-center items-center">
           <Image
+            loading="eager"
             alt="Abstract art"
-            src="/Abstract4.JPG"
+            src={Abstract4}
             layout="fill"
             objectFit="cover"
             quality={100}

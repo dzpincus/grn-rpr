@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+
+import abstract5 from "../public/Abstract5.jpg";
 
 const sections = [
   {
@@ -41,8 +42,9 @@ export default function DeathDoulaServices() {
         <div className="flex flex-col sm:block relative sm:h-full sm:w-full">
           <div className="h-56 w-56">
             <Image
+              loading="eager"
               alt="Abstract art"
-              src="/Abstract5.JPG"
+              src={abstract5}
               layout="fill"
               objectFit="cover"
               objectPosition="50% 0%"
