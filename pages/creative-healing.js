@@ -124,19 +124,6 @@ export default function CreativeHealing() {
           independent journey, explore a group setting, or curate a unique
           experience, get in touch.
         </p>
-        <Link href="/contact">
-          <button
-            className="w-32 py-1 
-                       place-self-center font-normal 
-                       text-xl text-white rounded-2xl 
-                       bg-gradient-to-tl from-buttonGradient1 
-                       to-buttonGradient2 hover:from-buttonGradient2 
-                       hover:to-buttonGradient1"
-            type="button"
-          >
-            Contact
-          </button>
-        </Link>
       </div>
     </>
   );
