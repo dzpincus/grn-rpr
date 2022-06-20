@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import abstract5 from "../public/Abstract5.jpg";
+import abstract5 from "../public/Abstract5.JPG";
 
 const sections = [
   {
