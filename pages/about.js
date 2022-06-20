@@ -39,24 +39,24 @@ export default function About() {
                 <br />
                 My name is Sasha.
                 <br />​<br />
-                I'm a certified Death Doula and a Creative Healer.
+                I&APOS;m a certified Death Doula and a Creative Healer.
                 <br />
-                I'm also just a lady who sincerely wants to talk about your
+                I&APOS;m also just a lady who sincerely wants to talk about your
                 feelings.
                 <br />
-                That might be hard to believe, but I've ruined enough parties to
-                say with absolute certainty that it's true.
+                That might be hard to believe, but I&APOS;ve ruined enough
+                parties to say with absolute certainty that it&APOS;s true.
                 <br />
                 <br />I earned my Doula certification from the University of
-                Vermont during the summer of 2020. I can't bake bread to save my
-                life so I decided to learn a lot about death instead.
-                <br />​<br />I will complete my Master's in Creative Arts
+                Vermont during the summer of 2020. I can&APOS;t bake bread to
+                save my life so I decided to learn a lot about death instead.
+                <br />​<br />I will complete my Master&APOS;s in Creative Arts
                 Therapy this August.
                 <br />​<br />
-                If you're wondering why you should trust a baby bird to help
-                your heart, please know that I am thirty. I have a young face
-                and took the scenic route to the start of my career, but for
-                that I am all the wiser (and much more good humored).
+                If you&APOS;re wondering why you should trust a baby bird to
+                help your heart, please know that I am thirty. I have a young
+                face and took the scenic route to the start of my career, but
+                for that I am all the wiser (and much more good humored).
                 <br />​<br />
                 Looking forward to meeting you,
               </p>

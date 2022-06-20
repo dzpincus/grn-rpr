@@ -17,7 +17,7 @@ export default function CreativeHealing() {
             </div>
             <p className="text-sm">
               When put together, two familiar words have vague implications.
-              Let's clear that up a bit.
+              Let&APOS;s clear that up a bit.
               <br /> <br />
               Creative healing uses evidence-based practices to amplify
               experiential learning.
@@ -26,10 +26,10 @@ export default function CreativeHealing() {
               <br /> <br />
               Think of it like this:
               <br /> <br />
-              It's the method and the madness. It's the process of confronting
-              assumptions about how the world should be, so you can accept how
-              it truly is—for better and for worse. It's finding that same grace
-              for yourself, too.
+              It&APOS;s the method and the madness. It&APOS;s the process of
+              confronting assumptions about how the world should be, so you can
+              accept how it truly is—for better and for worse. It&APOS;s finding
+              that same grace for yourself, too.
               <br /> <br />
               Creative healing helps to:
               <br /> <br />
@@ -71,12 +71,11 @@ export default function CreativeHealing() {
               <h2 className="font-serif text-3xl pb-2">Individual Sessions</h2>
               <span className="text-sm">
                 An individual session can look like a coffee date or a walk by
-                the water. If you're feeling creative, it can also include the
-                use of art, music, and movement to express what's not so easily
-                put into words.
+                the water. If you&APOS;re feeling creative, it can also include
+                the use of art, music, and movement to express what&APOS;s not
+                so easily put into words.
               </span>
             </div>
-            "
           </div>
           <div className="relative">
             <Image
@@ -89,9 +88,9 @@ export default function CreativeHealing() {
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
               <h2 className="font-serif text-3xl pb-2">Group Sessions</h2>
               <span className="text-sm">
-                Group work is incredibly powerful. There's a lot to be learned
-                from mindfully interacting with others, whether you know them
-                already or not!
+                Group work is incredibly powerful. There&APOS;s a lot to be
+                learned from mindfully interacting with others, whether you know
+                them already or not!
               </span>
             </div>
           </div>
@@ -117,11 +116,11 @@ export default function CreativeHealing() {
       </div>
       <div className="flex flex-col justify-items-center text-center bg-tanLight py-16">
         <h1 className="text-5xl text-black font-serif pb-12">
-          Let's get started!
+          Let&APOS;s get started!
         </h1>
         <p className="text-sm text-brown w-3/4 sm:w-1/2 place-self-center pb-12">
           I offer services on a sliding scale to make sure cost is never a
-          barrier for folks in need. Whether you're looking to start an
+          barrier for folks in need. Whether you&APOS;re looking to start an
           independent journey, explore a group setting, or curate a unique
           experience, get in touch.
         </p>

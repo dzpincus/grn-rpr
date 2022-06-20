@@ -6,13 +6,13 @@ const sections = [
     title: "Psychospiritual Support",
     icon: "/psycho.svg",
     description:
-      "Removing the stigma from death does not mean removing emotion. It's normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
+      "Removing the stigma from death does not mean removing emotion. It&APOS;s normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
   },
   {
     title: "Companioning",
     icon: "/companioning.svg",
     description:
-      "Company. It's a simple but powerful offering for anyone, including those approaching death. Whether we're reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another's journey. ",
+      "Company. It&APOS;s a simple but powerful offering for anyone, including those approaching death. Whether we&APOS;re reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another&APOS;s journey. ",
   },
   {
     title: "Project Management",
@@ -57,7 +57,7 @@ export default function DeathDoulaServices() {
             </h1>
             <p className="text-justify text-sm">
               For many people, death is tragic, terrifying, taboo, or
-              intolerably isolating. It doesn't have to be.
+              intolerably isolating. It doesn&APOS;t have to be.
               <br /> <br />
               As a Death Doula, I work with people who are approaching the end
               of life. I offer psycho-spiritual support, and help make necessary
@@ -90,7 +90,7 @@ export default function DeathDoulaServices() {
                     src={section.icon}
                   />
                 </div>
-                <div class="pl-2 col-start-2 col-span-6">
+                <div className="pl-2 col-start-2 col-span-6">
                   <h2 className="font-serif text-3xl pb-6">{section.title}</h2>
                   <span className="text-sm text-justify">
                     {section.description}
@@ -103,7 +103,7 @@ export default function DeathDoulaServices() {
             <h3 className="text-2xl pt-12">
               How to get
               <br />
-              <span class="italic">started</span>
+              <span className="italic">started</span>
             </h3>
             <p className="mx-4 py-10 text-sm">
               I work with each individual client to determine which services are
