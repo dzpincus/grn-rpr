@@ -15,7 +15,7 @@ export default function CreativeHealing() {
                 H<span className="italic">ealing</span>
               </h1>
             </div>
-            <p className="text-sm">
+            <div className="text-sm">
               When put together, two familiar words have vague implications.
               Let&apos;s clear that up a bit.
               <br /> <br />
@@ -33,7 +33,7 @@ export default function CreativeHealing() {
               <br /> <br />
               Creative healing helps to:
               <br /> <br />
-              <ul className="list-disc list-inside" role="list">
+              <ul className="list-disc list-inside">
                 <li>Clarify personal values</li>
                 <li>Restore curiosity</li>
                 <li>Prioritize obligations</li>
@@ -45,7 +45,7 @@ export default function CreativeHealing() {
               It can be a one-on-one thing, or a group effort.
               <br />
               Creative healing can be explored by anyone.
-            </p>
+            </div>
           </div>
           <div className="w-full mt-4 sm:mt-0 sm:ml-10 sm:col-start-5 sm:col-span-4 flex place-content-center">
             <div className="flex items-center relative sm:h-full sm:w-full h-72 w-72">
