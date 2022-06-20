@@ -36,7 +36,7 @@ export default function CreativeHealing() {
               <br /> <br />
               Creative healing helps to:
               <br /> <br />
-              <ul className="list-disc list-inside">
+              <ul className="list-inside list-disc">
                 <li>Clarify personal values</li>
                 <li>Restore curiosity</li>
                 <li>Prioritize obligations</li>
