@@ -7,13 +7,13 @@ const sections = [
     title: "Psychospiritual Support",
     icon: "/psycho.svg",
     description:
-      "Removing the stigma from death does not mean removing emotion. It&apos;s normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
+      "Removing the stigma from death does not mean removing emotion. It's normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
   },
   {
     title: "Companioning",
     icon: "/companioning.svg",
     description:
-      "Company. It&apos;s a simple but powerful offering for anyone, including those approaching death. Whether we&apos;re reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another&apos;s journey. ",
+      "Company. It's a simple but powerful offering for anyone, including those approaching death. Whether we're reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another's journey. ",
   },
   {
     title: "Project Management",
