@@ -31,7 +31,7 @@ export default function Home() {
         </p>
       </div>
       <div
-        className="hidden sm:grid grid-cols-1 h-96"
+        className="hidden sm:grid grid-cols-2 h-96"
         style={{ height: "890px" }}
       >
         <div className="h-full w-full max-h-full max-w-full relative flex justify-center items-center">
@@ -45,6 +45,14 @@ export default function Home() {
           <span className="text-white text-3xl font-serif relative">
             See you there.
           </span>
+        </div>
+        <div className="h-full w-full bg-tanDark p-10">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23AD1457&ctz=America%2FNew_York&showTitle=1&title=Event%20Calendar&showDate=1&showPrint=0&showTabs=1&showCalendars=0&src=YWc0bDBydTdtOGs2ZWd2MGdqbXU3YnFoZGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%238E24AA"
+            style={{ border: "solid 1px #777" }}
+            scrolling="no"
+            className="h-full w-full"
+          ></iframe>
         </div>
       </div>
       <div
