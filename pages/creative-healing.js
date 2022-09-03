@@ -1,5 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+import unsplash3 from "../public/Unsplash 3.jpg";
+import individual from "../public/Individual Sessions.jpg";
+import group from "../public/Group Sessions.jpg";
+import events from "../public/Events.jpg";
 
 export default function CreativeHealing() {
   return (
@@ -33,7 +36,7 @@ export default function CreativeHealing() {
               <br /> <br />
               Creative healing helps to:
               <br /> <br />
-              <ul className="list-disc list-inside">
+              <ul className="list-inside list-disc">
                 <li>Clarify personal values</li>
                 <li>Restore curiosity</li>
                 <li>Prioritize obligations</li>
@@ -50,10 +53,12 @@ export default function CreativeHealing() {
           <div className="w-full mt-4 sm:mt-0 sm:ml-10 sm:col-start-5 sm:col-span-4 flex place-content-center">
             <div className="flex items-center relative sm:h-full sm:w-full h-72 w-72">
               <Image
+                loading="eager"
                 alt="Unsplash"
-                src="/Unsplash 3.jpg"
+                src={unsplash3}
                 layout="fill"
                 className="rounded-full"
+                priority
               />
             </div>
           </div>
@@ -61,10 +66,11 @@ export default function CreativeHealing() {
         <div className="grid grid-rows-3 sm:grid-rows-1 sm:grid-cols-3 h-fit text-brownDark">
           <div className="relative h-64 sm:h-96 sm:py-80">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 1"
-              src="/Individual Sessions.jpg"
+              src={individual}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
@@ -79,10 +85,11 @@ export default function CreativeHealing() {
           </div>
           <div className="relative">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 2"
-              src="/Group Sessions.jpg"
+              src={group}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
@@ -96,10 +103,11 @@ export default function CreativeHealing() {
           </div>
           <div className="relative">
             <Image
+              loading="eager"
               className="sepia contrast-100"
               objectFit="fill"
               alt="Figures 3"
-              src="/Events.jpg"
+              src={events}
               layout="fill"
             />
             <div className="h-52 w-80 py-4 px-6 bg-peach opacity-80 absolute bottom-4 right-7 sm:bottom-24 sm:right-12 rounded-tl-3xl rounded-br-3xl">
@@ -124,19 +132,6 @@ export default function CreativeHealing() {
           independent journey, explore a group setting, or curate a unique
           experience, get in touch.
         </p>
-        <Link href="/contact">
-          <button
-            className="w-32 py-1 
-                       place-self-center font-normal 
-                       text-xl text-white rounded-2xl 
-                       bg-gradient-to-tl from-buttonGradient1 
-                       to-buttonGradient2 hover:from-buttonGradient2 
-                       hover:to-buttonGradient1"
-            type="button"
-          >
-            Contact
-          </button>
-        </Link>
       </div>
     </>
   );

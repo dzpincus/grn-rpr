@@ -1,4 +1,7 @@
 import Image from "next/image";
+import headshot from "../public/Headshot1.jpg";
+import signature from "../public/Signature.jpg";
+import abstract2 from "../public/Abstract2.jpg";
 
 export default function About() {
   return (
@@ -7,17 +10,20 @@ export default function About() {
         <div className="flex flex-col sm:grid sm:grid-cols-10 sm:grid-rows-2 h-full">
           <div className="flex sm:hidden relative" style={{ height: "250px" }}>
             <Image
+              loading="eager"
               alt="Headshot"
-              src="/Headshot1.png"
+              src={headshot}
               objectFit="cover"
               objectPosition="50% 25%"
               layout="fill"
+              priority
             />
           </div>
           <div className="hidden sm:block row-start-1 col-start-1 col-span-full self-center relative h-full contrast-150">
             <Image
+              loading="eager"
               alt="Abstract art"
-              src="/Abstract2.jpg"
+              src={abstract2}
               layout="fill"
               objectFit="cover"
               quality={100}
@@ -26,11 +32,13 @@ export default function About() {
           <div className="z-30 sm:self-end sm:row-span-full sm:col-start-3 sm:col-end-9 bg-white flex flex-row">
             <div className="relative hidden sm:block sm:w-1/2">
               <Image
+                loading="eager"
                 className="col-span-1"
                 alt="Headshot"
-                src="/Headshot1.png"
+                src={headshot}
                 objectFit="cover"
                 layout="fill"
+                priority
               />
             </div>
             <div className="sm:w-1/2 bg-white text-brown px-4 sm:px-10 py-12">
@@ -62,8 +70,9 @@ export default function About() {
               </p>
               <div className="flex sm:justify-center">
                 <Image
+                  loading="eager"
                   alt="Signature"
-                  src="/Signature.png"
+                  src={signature}
                   width={178}
                   height={119}
                 />
@@ -76,8 +85,9 @@ export default function About() {
             style={{ height: "200px" }}
           >
             <Image
+              loading="eager"
               alt="Abstract art"
-              src="/Abstract2.jpg"
+              src={abstract2}
               objectFit="cover"
               layout="fill"
               quality={100}

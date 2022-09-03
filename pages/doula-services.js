@@ -1,18 +1,19 @@
 import Image from "next/image";
-import Link from "next/link";
+
+import abstract5 from "../public/Abstract5.JPG";
 
 const sections = [
   {
     title: "Psychospiritual Support",
     icon: "/psycho.svg",
     description:
-      "Removing the stigma from death does not mean removing emotion. It&apos;s normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
+      "Removing the stigma from death does not mean removing emotion. It's normal to experience a lot of conflicting feelings when one is approaching the end of life. Psychospiritual support is the process of holding space, and finding a way to make peace with this last rite of passage. ",
   },
   {
     title: "Companioning",
     icon: "/companioning.svg",
     description:
-      "Company. It&apos;s a simple but powerful offering for anyone, including those approaching death. Whether we&apos;re reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another&apos;s journey. ",
+      "Company. It's a simple but powerful offering for anyone, including those approaching death. Whether we're reading together, listening to music, sharing stories, or simply enjoying a comfortable silence, companioning is a way to be present for another's journey. ",
   },
   {
     title: "Project Management",
@@ -41,12 +42,14 @@ export default function DeathDoulaServices() {
         <div className="flex flex-col sm:block relative sm:h-full sm:w-full">
           <div className="h-56 w-56">
             <Image
+              loading="eager"
               alt="Abstract art"
-              src="/Abstract5.JPG"
+              src={abstract5}
               layout="fill"
               objectFit="cover"
               objectPosition="50% 0%"
               quality={100}
+              priority
             />
           </div>
           <div className="pt-10 pb-8 z-50 sm:w-1/2 sm:absolute sm:left-1/4 sm:-bottom-32 sm:text-center bg-tan text-brown px-10">
@@ -111,19 +114,6 @@ export default function DeathDoulaServices() {
               never a barrier for folks in need. <br />
               For more information get in touch.
             </p>
-            <Link href="/contact">
-              <button
-                className="w-32 py-1 
-                       place-self-center font-normal 
-                       text-xl text-white rounded-2xl 
-                       bg-gradient-to-tl from-buttonGradient1 
-                       to-buttonGradient2 hover:from-buttonGradient2 
-                       hover:to-buttonGradient1"
-                type="button"
-              >
-                Contact
-              </button>
-            </Link>
           </div>
         </div>
       </div>
