@@ -10,7 +10,7 @@ import { Tooltip } from "./tooltip";
 export default function Footer() {
   return (
     <>
-      <footer className="bg-purple h-36 w-full flex place-content-center items-center gap-5">
+      <footer className="bg-primary h-36 w-full flex place-content-center items-center gap-5">
         <Tooltip message="https://www.facebook.com/Sasha.et.al">
           <a
             href="https://www.facebook.com/Sasha.et.al"
@@ -35,7 +35,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faCircle} color="white" />
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="text-purple"
+                className="text-primary"
                 transform="shrink-6"
               />
             </span>
@@ -47,7 +47,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faCircle} color="white" />
               <FontAwesomeIcon
                 icon={faPhone}
-                className="text-purple"
+                className="text-primary"
                 transform="shrink-6"
               />
             </span>

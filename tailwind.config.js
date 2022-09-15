@@ -1,4 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = {
+  primary: "#743448",
+  "base-100": "#FFF7EC",
+  "base-200": "#EBE0D5",
+  "base-300": "#E4BFAD",
+  "base-content": "#4D4745",
+  secondary: "#C14735",
+  "secondary-focus": "#7A1509",
+  info: "#B0988E",
+  gradientPrimary: "#B894CB",
+  gradientSecondary: "#E34B2B",
+  neutral: "#546A7B",
+  "neutral-focus": "#546A7B",
+  accent: "#247BA0",
+};
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -10,29 +27,15 @@ module.exports = {
       serif: ["corben, serif"],
     },
     extend: {
-      colors: {
-        purple: "#743448",
-        tanLight: "#FFF7EC",
-        tan: "#EBE0D5",
-        tanDark: "#E4BFAD",
-        peach: "#FFBC99",
-        black: "#48413F",
-        brownLight: "#B0988E",
-        brown: "#3d0b04",
-        brownDark: "#413A38",
-        orangeLight: "#EB7C43",
-        orange: "#C14735",
-        orangeDark: "#7A1509",
-        yellow: "#E6D59F",
-        gradientOrange: "#E34B2B",
-        gradientPurple: "#B894CB",
-        buttonGradient1: "#5F5BCD",
-        buttonGradient2: "#F5570D",
-      },
-      letterSpacing: {
-        widest: "4.6px",
-      },
+      colors: colors,
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: colors,
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };

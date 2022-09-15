@@ -12,7 +12,7 @@ export default function Header() {
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
     { title: "Creative Healing", url: "/creative-healing" },
-    { title: "Death Doula Services", url: "/doula-services" },
+    { title: "Forum", url: "/forum" },
   ];
 
   const router = useRouter();
@@ -24,15 +24,15 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-tan z-50">
+      <header className="bg-base-200 z-50">
         <a
           onClick={() => setMenuActive((menuActive) => !menuActive)}
-          className="fixed sm:hidden top-5 right-5 z-60 text-orange"
+          className="fixed sm:hidden top-5 right-5 z-60 text-secondary"
         >
           <FontAwesomeIcon icon={faBars} size="2x" />
         </a>
 
-        <h1 className="text-center text-black text-2xl font-serif tracking-widest pt-24 pb-20 font-medium">
+        <h1 className="text-center text-2xl font-serif tracking-widest font-medium pt-24 pb-20">
           T<span className="italic">he </span>G
           <span className="italic">rin </span>R
           <span className="italic">eaper</span>
@@ -46,10 +46,8 @@ export default function Header() {
           {pages.map((page) => (
             <Link key={page.title} href={page.url}>
               <a
-                className={`px-4 text-sm hover:text-orange ${
-                  router.asPath === page.url
-                    ? "text-orangeDark"
-                    : "text-brownLight"
+                className={`px-4 text-sm hover:text-secondary-focus ${
+                  router.asPath === page.url ? "text-secondary" : "text-info"
                 }`}
               >
                 {page.title}
@@ -67,10 +65,10 @@ export default function Header() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed sm:hidden top-0 left-0 w-full h-full bg-tan">
+          <div className="fixed sm:hidden top-0 left-0 w-full h-full bg-base-200">
             <a
               onClick={() => setMenuActive((menuActive) => !menuActive)}
-              className="fixed sm:hidden top-5 right-5 z-60 text-orange"
+              className="fixed sm:hidden top-5 right-5 z-60 text-secondary"
             >
               <FontAwesomeIcon icon={faXmark} size="2x" />
             </a>
@@ -83,10 +81,8 @@ export default function Header() {
                 <a
                   onClick={() => mobilMenuOnClick(page.url)}
                   key={page.title}
-                  className={`px-4 text-sm hover:text-orange ${
-                    router.asPath === page.url
-                      ? "text-orangeDark"
-                      : "text-brownLight"
+                  className={`px-4 text-sm hover:text-secondary-focus ${
+                    router.asPath === page.url ? "text-secondary" : "text-info"
                   }`}
                 >
                   {page.title}

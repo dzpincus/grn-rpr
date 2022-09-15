@@ -41,7 +41,7 @@ export default function About() {
                 priority
               />
             </div>
-            <div className="sm:w-1/2 bg-white text-brown px-4 sm:px-10 py-12">
+            <div className="sm:w-1/2 bg-white px-4 sm:px-10 py-12">
               <h1 className="text-3xl font-serif">Hi there!</h1>
               <p>
                 <br />

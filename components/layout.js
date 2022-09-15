@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <>
       <div className="flex flex-col min-h-screen">
         <Header></Header>
-        <main className="grow">{children}</main>
+        <main className="flex flex-1 flex-col min-h-full">{children}</main>
         <Footer></Footer>
       </div>
     </>
