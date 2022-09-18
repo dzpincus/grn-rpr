@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 const ReactQuill =
   typeof window === "object" ? require("react-quill") : () => false;
 
-const submit = function () {};
-
 export default function ForumForm(props) {
   const {
     register,
     formState: { errors },
     handleSubmit,
     setValue,
+    clearErrors,
+    getValues,
   } = useForm();
 
   useEffect(() => {
@@ -27,22 +27,38 @@ export default function ForumForm(props) {
     setValue("content", editorState);
   };
 
+  const [disabled, setDisabled] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
   const onSubmit = async function (data) {
+    setSubmitting(true);
+    setDisabled(true);
     fetch("/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((response) => {
-        console.log(response.status);
+        response.json().then((post) => {
+          props.addPost(post);
+          props.setModalOpen(false);
+        });
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        clearErrors();
+        setDisabled(false);
+        setSubmitting(false);
       });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={submitting ? "cursor-wait" : "cursor-default"}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="flex flex-col font-serif">
         <div className="flex justify-between">
           <h1 className="text-2xl pb-5">Create a new Post</h1>
@@ -69,9 +85,10 @@ export default function ForumForm(props) {
           onChange={onEditorStateChange}
           className={`${errors.title ? "border border-error" : ""}`}
           name="content"
+          value={getValues("content")}
         />
 
-        <button type="submit" className="btn mt-12">
+        <button disabled={disabled} type="submit" className="btn mt-12">
           Save
         </button>
       </div>

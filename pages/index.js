@@ -3,6 +3,8 @@ import Image from "next/image";
 import logo from "../public/GrinReaper.png";
 import Abstract4 from "../public/Abstract4.JPG";
 
+import { titleItalics } from "../utils/text";
+
 export default function Home() {
   return (
     <>
@@ -18,9 +20,7 @@ export default function Home() {
       </div>
       <div className="bg-base-200 grid grid-cols-1 justify-items-center">
         <h1 className="text-center text-2xl font-serif pt-24 font-medium">
-          T<span className="italic">he </span>G
-          <span className="italic">rin </span>R
-          <span className="italic">eaper</span>
+          {titleItalics("The Grin Reaper")}
         </h1>
         <span className="text-3xl py-10">&mdash;</span>
         <p className="text-center w-1/2 font-extralight pb-4">

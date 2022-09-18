@@ -3,17 +3,17 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
+import { titleItalics } from "../../utils/text";
+
 export default function ForumHeader() {
   const { user } = useUser();
 
   return (
     <>
-      <div className="bg-base-200 drop-shadow-lg flex w-full justify-between items-center px-6">
+      <div className="sticky top-0 overflow-hidden bg-base-200 drop-shadow-lg flex w-full justify-between items-center px-6">
         <Link href="/">
-          <h1 className="cur sor-pointer text-lg md:text-2xl font-serif tracking-widest font-medium py-6">
-            T<span className="italic">he </span>G
-            <span className="italic">rin </span>R
-            <span className="italic">eaper</span>
+          <h1 className="cursor-pointer text-lg md:text-2xl font-serif tracking-widest font-medium py-6">
+            {titleItalics("The Grin Reaper")}
             <br />
           </h1>
         </Link>

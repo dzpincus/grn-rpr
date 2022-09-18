@@ -6,6 +6,8 @@ import { Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
+import { titleItalics } from "../utils/text";
+
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
   const pages = [
@@ -33,9 +35,7 @@ export default function Header() {
         </a>
 
         <h1 className="text-center text-2xl font-serif tracking-widest font-medium pt-24 pb-20">
-          T<span className="italic">he </span>G
-          <span className="italic">rin </span>R
-          <span className="italic">eaper</span>
+          {titleItalics("The Grin Reaper")}
           <br />
         </h1>
         <div

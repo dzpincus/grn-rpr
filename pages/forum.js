@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import logo from "../public/GrinReaper.png";
 import Image from "next/image";
 
+import Loader from "../components/loader";
 import ForumHeader from "../components/forum/forumHeader";
+import ForumTable from "../components/forum/forumTable";
 import ForumForm from "../components/forum/forumForm";
+
+import { titleItalics } from "../utils/text";
+import { useGetPosts } from "../utils/requests";
+import Link from "next/link";
 
 export default function Forum() {
   const { user, error, isLoading } = useUser();
+  const [postsLoading, setPostsLoading] = useState(false);
 
   const [modalOpen, setModalOpen] = useState(false);
-
-  const getPosts = async function () {
-    await fetch("/api/posts");
-  };
 
   const modalClick = function (evt) {
     if (
@@ -26,17 +29,18 @@ export default function Forum() {
     }
   };
 
+  const { posts, error: postError } = useGetPosts("/api/posts");
+
+  const addPost = function (post) {
+    posts.unshift(post);
+  };
+
   if (isLoading) {
     return (
       <>
-        <div className="flex justify-center items-center h-64">
-          <div
-            className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
-            role="status"
-          >
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <ForumHeader />
+        <br />
+        <Loader />
       </>
     );
   }
@@ -45,27 +49,36 @@ export default function Forum() {
     return (
       <>
         <ForumHeader />
-        <div className="bg-base-100 flex flex-col flex-1 items-center">
-          <div className="w-full pt-16 sm:w-3/4 md:w-1/2 h-12">
-            <label
-              htmlFor="forum-form-modal"
-              onClick={() => setModalOpen(true)}
-              className="btn float-right"
-            >
-              <FontAwesomeIcon icon={faSquarePlus} className="pr-2" />
-              New Post
-            </label>
+        <div className="bg-base-100 flex flex-col flex-1 items-center h-full">
+          <div className="w-full px-8 sm:px-0 pt-16 sm:w-1/2 pb-20 h-full">
+            <div className="flex w-full justify-between items-center mb-4 px-3">
+              <h2 className="font-serif text-5xl cursor-pointer">
+                {titleItalics("Forum")}
+              </h2>
+              <label
+                htmlFor="forum-form-modal"
+                onClick={() => setModalOpen(true)}
+                className="btn float-right"
+              >
+                <FontAwesomeIcon icon={faSquarePlus} className="pr-2" />
+                New Post
+              </label>
+            </div>
+            <ForumTable posts={posts} user={user} />
           </div>
         </div>
         <label
           htmlFor="forum-form-modal"
           className={`modal cursor-pointer ${modalOpen ? "modal-open" : ""}`}
+          onClick={modalClick}
         >
           <label className="modal-box relative bg-base-200" htmlFor="">
             <ForumForm
               modalId="forum-form-modal"
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
+              addPost={addPost}
+              user={user}
             />
           </label>
         </label>
@@ -104,7 +117,9 @@ export default function Forum() {
 Forum.getLayout = function getLayout(page) {
   return (
     <>
-      <div className="flex flex-col min-h-screen w-full">{page}</div>
+      <div className="flex flex-col min-h-screen w-full overflow-y-scroll">
+        {page}
+      </div>
     </>
   );
 };

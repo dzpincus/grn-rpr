@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import "react-quill/dist/quill.snow.css";
+@import "./forum.css";
+@import "./post.css";
 
 html,
 body {
@@ -22,4 +24,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.ql-toolbar {
+  border-top-left-radius: var(--rounded-btn, 0.5rem);
+  border-top-right-radius: var(--rounded-btn, 0.5rem);
+}
+
+.ql-container {
+  border-bottom-left-radius: var(--rounded-btn, 0.5rem);
+  border-bottom-right-radius: var(--rounded-btn, 0.5rem);
+}
+
+.ql-editor {
+  background-color: #fff7eb;
+  height: 10rem;
+  border-bottom-left-radius: var(--rounded-btn, 0.5rem);
+  border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }

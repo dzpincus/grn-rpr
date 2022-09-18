@@ -10,8 +10,20 @@ generator client {
 }
 
 model Post {
-  id          Int    @id @default(autoincrement())
-  authorEmail String
-  title       String
-  content     String @db.LongText
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String
+  content   String   @db.LongText
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  views     Int      @default(0)
+}
+
+model User {
+  id             Int    @id @default(autoincrement())
+  email          String @unique
+  firstName      String
+  lastName       String
+  profilePicture String
+  posts          Post[]
 }
