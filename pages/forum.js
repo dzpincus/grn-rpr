@@ -11,12 +11,15 @@ import ForumTable from "../components/forum/forumTable";
 import ForumForm from "../components/forum/forumForm";
 
 import { titleItalics } from "../utils/text";
-import { getPosts } from "../utils/requests";
+import { getSWR } from "../utils/requests";
 import Link from "next/link";
 
 export default function Forum() {
   const { user, error, isLoading } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
+  const [page, setPage] = useState(0);
+
+  const pageSize = 10;
 
   const modalClick = function (evt) {
     if (
@@ -26,8 +29,13 @@ export default function Forum() {
       setModalOpen(false);
     }
   };
+  const postsPath =
+    "/api/posts/?" +
+    new URLSearchParams({ skip: page * pageSize, take: pageSize });
+  const { data: posts, error: postError } = getSWR(postsPath);
 
-  const { posts, error: postError } = getPosts("/api/posts");
+  const countPath = "/api/posts/count/";
+  const { data: count, error: countError } = getSWR(countPath);
 
   const addPost = function (post) {
     posts.unshift(post);
@@ -47,7 +55,7 @@ export default function Forum() {
     return (
       <>
         <ForumHeader />
-        <div className="bg-base-100 flex flex-col flex-1 items-center h-full">
+        <div className="bg-base-100 flex flex-col flex-1 items-center h-full z-0">
           <div className="w-full px-8 sm:px-0 pt-16 sm:w-1/2 pb-20 h-full">
             <div className="flex w-full justify-between items-center mb-4 px-3">
               <h2 className="font-serif text-5xl">{titleItalics("Forum")}</h2>
@@ -60,7 +68,13 @@ export default function Forum() {
                 New Post
               </label>
             </div>
-            <ForumTable posts={posts} user={user} />
+            <ForumTable
+              posts={posts}
+              user={user}
+              page={page}
+              setPage={setPage}
+              pageCount={Math.floor(count / pageSize)}
+            />
           </div>
         </div>
         <label
@@ -113,9 +127,7 @@ export default function Forum() {
 Forum.getLayout = function getLayout(page) {
   return (
     <>
-      <div className="flex flex-col min-h-screen w-full overflow-y-scroll">
-        {page}
-      </div>
+      <div className="flex flex-col min-h-screen w-full">{page}</div>
     </>
   );
 };

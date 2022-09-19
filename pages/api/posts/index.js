@@ -6,30 +6,38 @@ import prismaClient from "../../../prisma/prismaClient";
 import { withApiAuthRequired, getSession } from "@auth0/nextjs-auth0";
 
 module.exports = withApiAuthRequired(async (req, res) => {
-  if (req.method === "POST") {
-    return await createPost(req, res);
-  } else if (req.method === "GET") {
-    const data = await prismaClient.post.findMany({
-      orderBy: [
-        {
-          createdAt: "desc",
-        },
-      ],
-      include: {
-        author: true,
-        comments: {
-          include: {
-            author: true,
+  try {
+    if (req.method === "POST") {
+      return await createPost(req, res);
+    } else if (req.method === "GET") {
+      const skip = req.query.skip ? parseInt(req.query.skip) : 0;
+      const take = parseInt(req.query.take);
+      const data = await prismaClient.post.findMany({
+        orderBy: [
+          {
+            createdAt: "desc",
           },
-          orderBy: [
-            {
-              createdAt: "desc",
+        ],
+        skip: skip,
+        take: take,
+        include: {
+          author: true,
+          comments: {
+            include: {
+              author: true,
             },
-          ],
+            orderBy: [
+              {
+                createdAt: "desc",
+              },
+            ],
+          },
         },
-      },
-    });
-    res.status(200).json(data);
+      });
+      res.status(200).json(data);
+    }
+  } catch (error) {
+    res.status(500);
   }
 
   res.send();
@@ -48,6 +56,7 @@ const createPost = async function (req, res) {
       },
       include: {
         author: true,
+        comments: true,
       },
     });
     return res.status(200).json(newPost);

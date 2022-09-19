@@ -10,12 +10,8 @@ const fetcher = async function (route) {
     .catch((error) => console.error(error));
 };
 
-export const getPosts = (path) => {
-  if (!path) {
-    throw new Error("Path is required");
-  }
+export const getSWR = (path) => {
+  const { data, error } = useSWR(path, fetcher);
 
-  const { data: posts, error } = useSWR(path, fetcher);
-
-  return { posts, error };
+  return { data, error };
 };

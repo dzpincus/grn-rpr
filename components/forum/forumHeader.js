@@ -10,7 +10,7 @@ export default function ForumHeader() {
 
   return (
     <>
-      <div className="sticky top-0 overflow-hidden bg-base-200 drop-shadow-lg flex w-full justify-between items-center px-6">
+      <div className="sticky top-0 overflow-visible bg-base-200 drop-shadow-lg flex w-full justify-between items-center px-6">
         <Link href="/">
           <h1 className="cursor-pointer text-lg md:text-2xl font-serif tracking-widest font-medium py-6">
             {titleItalics("The Grin Reaper")}
@@ -19,7 +19,7 @@ export default function ForumHeader() {
         </Link>
         {user ? (
           <>
-            <div className="dropdown dropdown-hover dropdown-end">
+            <div className="dropdown dropdown-hover dropdown-left">
               <label tabIndex={0} className="m-1 cursor-pointer">
                 <img
                   src={user.picture}
@@ -31,7 +31,7 @@ export default function ForumHeader() {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content top-16 menu-compact text-right px-4 py-3 shadow bg-base-100 rounded-box w-fit"
+                className="dropdown-content menu-compact text-right px-4 py-3 shadow bg-base-100 rounded-box w-fit top-32"
               >
                 <li>
                   <a href="/api/auth/logout">Logout</a>

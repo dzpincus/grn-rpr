@@ -5,7 +5,7 @@ import ForumPost from "./forumPost";
 import Loader from "../loader";
 import { formatDate } from "../../utils/date";
 
-export default function ForumTable({ posts, user }) {
+export default function ForumTable({ posts, user, page, setPage, pageCount }) {
   const [viewTable, setViewTable] = useState(true);
   const [viewPost, setViewPost] = useState(false);
   const [activePost, setActivePost] = useState({});
@@ -58,82 +58,107 @@ export default function ForumTable({ posts, user }) {
 
   return (
     <>
-      <div className="shadow-2xl rounded-2xl">
-        <CSSTransition
-          in={viewTable}
-          timeout={500}
-          classNames="fade-in-out"
-          unmountOnExit
-        >
-          <table className="table w-full">
-            <thead>
-              <tr className="text-right">
-                <th className="text-left">Title</th>
-                <th className="text-center">Comments</th>
-                <th className="text-center">Views</th>
-                <th className="text-center">Posted At</th>
-                <th>Author</th>
-              </tr>
-            </thead>
-            {posts ? (
-              <tbody>
-                {posts.map((post, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      className="cursor-pointer text-right"
-                      onMouseOver={(event) => hoverRow(event, true)}
-                      onMouseOut={(event) => hoverRow(event, false)}
-                      onClick={() => clickPost(post)}
-                    >
-                      <td className="text-left">{post.title}</td>
-                      <td className="text-center">{post.comments.length}</td>
-                      <td className="text-center">{post.views}</td>
-                      <td className="text-center">
-                        {formatDate(post.createdAt)}
-                      </td>
-                      <td>
-                        <img
-                          src={post.author.profilePicture}
-                          alt={post.author.email}
-                          height="40px"
-                          width="40px"
-                          align="right"
-                          className="rounded-full"
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            ) : (
-              <tbody>
-                <tr>
-                  <td colSpan={5}>
-                    <div className="w-full flex justify-center">
-                      <Loader />
-                    </div>
-                  </td>
+      <CSSTransition
+        in={viewTable}
+        timeout={500}
+        classNames="fade-in-out"
+        unmountOnExit
+      >
+        <>
+          <div className="shadow-2xl rounded-2xl">
+            <table className="table w-full">
+              <thead>
+                <tr className="text-right">
+                  <th className="text-left">Title</th>
+                  <th className="text-center">Comments</th>
+                  <th className="text-center">Views</th>
+                  <th className="text-center">Posted At</th>
+                  <th>Author</th>
                 </tr>
-              </tbody>
-            )}
-          </table>
-        </CSSTransition>
-        <CSSTransition
-          in={viewPost}
-          timeout={500}
-          classNames="fade-in-out"
-          unmountOnExit
-        >
-          <>
+              </thead>
+              {posts ? (
+                <tbody>
+                  {posts.map((post, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        className="cursor-pointer text-right"
+                        onMouseOver={(event) => hoverRow(event, true)}
+                        onMouseOut={(event) => hoverRow(event, false)}
+                        onClick={() => clickPost(post)}
+                      >
+                        <td className="text-left">{post.title}</td>
+                        <td className="text-center">{post.comments.length}</td>
+                        <td className="text-center">{post.views}</td>
+                        <td className="text-center">
+                          {formatDate(post.createdAt)}
+                        </td>
+                        <td>
+                          <img
+                            src={post.author.profilePicture}
+                            alt={post.author.email}
+                            height="40px"
+                            width="40px"
+                            align="right"
+                            className="rounded-full"
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              ) : (
+                <tbody>
+                  <tr>
+                    <td colSpan={5}>
+                      <div className="w-full flex justify-center">
+                        <Loader />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              )}
+            </table>
+          </div>
+          {pageCount >= 1 && (
+            <div className="flex justify-center mt-10">
+              <div className="btn-group">
+                <button
+                  className="btn"
+                  disabled={page === 0}
+                  onClick={() => setPage(page - 1)}
+                >
+                  «
+                </button>
+                <button className="btn">Page {page + 1}</button>
+                <button
+                  className="btn"
+                  disabled={page === pageCount}
+                  onClick={() => setPage(page + 1)}
+                >
+                  »
+                </button>
+              </div>
+            </div>
+          )}
+        </>
+      </CSSTransition>
+      <CSSTransition
+        in={viewPost}
+        timeout={500}
+        classNames="fade-in-out"
+        unmountOnExit
+      >
+        <>
+          <div className="shadow-2xl rounded-2xl">
             <ForumPost
               post={activePost}
               toggle={toggle}
               deletePost={deletePost}
             />
-          </>
-        </CSSTransition>
-      </div>
+          </div>
+        </>
+      </CSSTransition>
     </>
   );
 }
