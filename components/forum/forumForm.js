@@ -22,7 +22,7 @@ export default function ForumForm(props) {
   useEffect(() => {
     setValue("title", "");
     setValue("content", "");
-  }, [props.modalOpen]);
+  }, [props.modalOpen, props.setModalOpen]);
 
   const onEditorStateChange = (editorState) => {
     setValue("content", editorState);

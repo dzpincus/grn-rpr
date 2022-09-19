@@ -112,9 +112,9 @@ export default function Forum() {
 
             <h2 className="text-xl">
               Please{" "}
-              <a className="text-accent" href="/api/auth/login">
+              <Link className="text-accent" href="/api/auth/login">
                 log in
-              </a>{" "}
+              </Link>{" "}
               to enter the forum
             </h2>
           </div>

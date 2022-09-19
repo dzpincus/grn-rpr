@@ -34,18 +34,18 @@ export default function ForumHeader() {
                 className="dropdown-content menu-compact text-right px-4 py-3 shadow bg-base-100 rounded-box w-fit top-32"
               >
                 <li>
-                  <a href="/api/auth/logout">Logout</a>
+                  <Link href="/api/auth/logout">Logout</Link>
                 </li>
               </ul>
             </div>
           </>
         ) : (
-          <a href="/api/auth/login">
+          <Link href="/api/auth/login">
             <button className="btn btn-primary btn-sm md:btn-md">
               <FontAwesomeIcon icon={faUser} className="pr-2" />
               Log In
             </button>
-          </a>
+          </Link>
         )}
       </div>
     </>
