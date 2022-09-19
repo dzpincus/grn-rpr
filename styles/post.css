@@ -1,7 +1,21 @@
-.post > ol {
+.rich-text > ol {
   list-style-type: decimal;
 }
 
-.post > ul {
+.rich-text > ul {
   list-style-type: disc;
+}
+
+.caret-div::before {
+  position: absolute;
+  top: 12px;
+  left: -8px;
+  display: block;
+  width: 8px;
+  height: 16px;
+  pointer-events: none;
+  content: " ";
+  -webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background-color: theme(colors.base-100);
 }

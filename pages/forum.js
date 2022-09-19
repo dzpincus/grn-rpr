@@ -11,13 +11,11 @@ import ForumTable from "../components/forum/forumTable";
 import ForumForm from "../components/forum/forumForm";
 
 import { titleItalics } from "../utils/text";
-import { useGetPosts } from "../utils/requests";
+import { getPosts } from "../utils/requests";
 import Link from "next/link";
 
 export default function Forum() {
   const { user, error, isLoading } = useUser();
-  const [postsLoading, setPostsLoading] = useState(false);
-
   const [modalOpen, setModalOpen] = useState(false);
 
   const modalClick = function (evt) {
@@ -29,7 +27,7 @@ export default function Forum() {
     }
   };
 
-  const { posts, error: postError } = useGetPosts("/api/posts");
+  const { posts, error: postError } = getPosts("/api/posts");
 
   const addPost = function (post) {
     posts.unshift(post);
@@ -52,9 +50,7 @@ export default function Forum() {
         <div className="bg-base-100 flex flex-col flex-1 items-center h-full">
           <div className="w-full px-8 sm:px-0 pt-16 sm:w-1/2 pb-20 h-full">
             <div className="flex w-full justify-between items-center mb-4 px-3">
-              <h2 className="font-serif text-5xl cursor-pointer">
-                {titleItalics("Forum")}
-              </h2>
+              <h2 className="font-serif text-5xl">{titleItalics("Forum")}</h2>
               <label
                 htmlFor="forum-form-modal"
                 onClick={() => setModalOpen(true)}

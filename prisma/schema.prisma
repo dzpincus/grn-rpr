@@ -10,20 +10,32 @@ generator client {
 }
 
 model Post {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  title     String
+  content   String    @db.LongText
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  Int
+  views     Int       @default(0)
+  comments  Comment[]
+}
+
+model Comment {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  title     String
-  content   String   @db.LongText
+  content   String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    Int
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
-  views     Int      @default(0)
 }
 
 model User {
-  id             Int    @id @default(autoincrement())
-  email          String @unique
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
   firstName      String
   lastName       String
   profilePicture String
   posts          Post[]
+  comments       Comment[]
 }

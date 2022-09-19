@@ -1,17 +1,15 @@
-import { PrismaClient } from "@prisma/client";
 import sanitizeHtml from "sanitize-html";
 
-const prisma = new PrismaClient();
+import { findOrCreateUser } from "../../../utils/api";
 
-// pages/api/courses.js
-
+import prismaClient from "../../../prisma/prismaClient";
 import { withApiAuthRequired, getSession } from "@auth0/nextjs-auth0";
 
 module.exports = withApiAuthRequired(async (req, res) => {
   if (req.method === "POST") {
     return await createPost(req, res);
   } else if (req.method === "GET") {
-    const data = await prisma.post.findMany({
+    const data = await prismaClient.post.findMany({
       orderBy: [
         {
           createdAt: "desc",
@@ -19,6 +17,16 @@ module.exports = withApiAuthRequired(async (req, res) => {
       ],
       include: {
         author: true,
+        comments: {
+          include: {
+            author: true,
+          },
+          orderBy: [
+            {
+              createdAt: "desc",
+            },
+          ],
+        },
       },
     });
     res.status(200).json(data);
@@ -32,7 +40,7 @@ const createPost = async function (req, res) {
     const body = req.body;
     const { user: sessionUser } = getSession(req, res);
     const user = await findOrCreateUser(sessionUser);
-    const newPost = await prisma.post.create({
+    const newPost = await prismaClient.post.create({
       data: {
         authorId: user.id,
         title: body.title,
@@ -46,18 +54,4 @@ const createPost = async function (req, res) {
   } catch (error) {
     return res.status(500).json({ error: "Error saving post" });
   }
-};
-
-const findOrCreateUser = async function (sessionUser) {
-  const data = {
-    email: sessionUser.email,
-    firstName: sessionUser.given_name,
-    lastName: sessionUser.family_name,
-    profilePicture: sessionUser.picture,
-  };
-  return await prisma.user.upsert({
-    where: { email: sessionUser.email },
-    update: data,
-    create: data,
-  });
 };

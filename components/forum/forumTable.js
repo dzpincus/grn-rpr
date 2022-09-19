@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group";
 
 import ForumPost from "./forumPost";
 import Loader from "../loader";
+import { formatDate } from "../../utils/date";
 
 export default function ForumTable({ posts, user }) {
   const [viewTable, setViewTable] = useState(true);
@@ -23,9 +24,22 @@ export default function ForumTable({ posts, user }) {
     }
   };
 
+  const deletePost = async function (postId) {
+    {
+      await fetch(`api/posts/${postId}`, {
+        method: "DELETE",
+      }).then((response) => {
+        toggle();
+        console.log(posts.length);
+        posts = posts.filter((p) => p.id != postId);
+        console.log(posts.length);
+      });
+    }
+  };
+
   const clickPost = function (post) {
-    if (post.author.id === user.id) {
-      fetch(`/api/posts/view?id=${post.id}`, { method: "POST" });
+    if (post.author.email !== user.email) {
+      fetch(`/api/posts/${post.id}`, { method: "GET" });
     }
     setActivePost(post);
     toggle();
@@ -42,11 +56,6 @@ export default function ForumTable({ posts, user }) {
     }
   };
 
-  const formatDate = function (dateString) {
-    const d = new Date(dateString);
-    return d.toLocaleString("lookup");
-  };
-
   return (
     <>
       <div className="shadow-2xl rounded-2xl">
@@ -60,9 +69,9 @@ export default function ForumTable({ posts, user }) {
             <thead>
               <tr className="text-right">
                 <th className="text-left">Title</th>
-                <th>Replies</th>
-                <th>Views</th>
-                <th>Date Posted</th>
+                <th className="text-center">Comments</th>
+                <th className="text-center">Views</th>
+                <th className="text-center">Posted At</th>
                 <th>Author</th>
               </tr>
             </thead>
@@ -78,9 +87,11 @@ export default function ForumTable({ posts, user }) {
                       onClick={() => clickPost(post)}
                     >
                       <td className="text-left">{post.title}</td>
-                      <td></td>
-                      <td>{post.views}</td>
-                      <td>{formatDate(post.createdAt)}</td>
+                      <td className="text-center">{post.comments.length}</td>
+                      <td className="text-center">{post.views}</td>
+                      <td className="text-center">
+                        {formatDate(post.createdAt)}
+                      </td>
                       <td>
                         <img
                           src={post.author.profilePicture}
@@ -115,7 +126,11 @@ export default function ForumTable({ posts, user }) {
           unmountOnExit
         >
           <>
-            <ForumPost post={activePost} toggle={toggle} />
+            <ForumPost
+              post={activePost}
+              toggle={toggle}
+              deletePost={deletePost}
+            />
           </>
         </CSSTransition>
       </div>

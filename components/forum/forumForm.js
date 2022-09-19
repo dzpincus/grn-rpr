@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import Editor from "../Editor";
 
 const ReactQuill =
   typeof window === "object" ? require("react-quill") : () => false;
@@ -81,11 +82,10 @@ export default function ForumForm(props) {
         <label htmlFor="content" className="text-lg pt-8 pb-4">
           Post Content
         </label>
-        <ReactQuill
-          onChange={onEditorStateChange}
-          className={`${errors.title ? "border border-error" : ""}`}
-          name="content"
+        <Editor
+          onStateChange={onEditorStateChange}
           value={getValues("content")}
+          error={Boolean(errors.content)}
         />
 
         <button disabled={disabled} type="submit" className="btn mt-12">
