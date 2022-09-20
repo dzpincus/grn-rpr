@@ -5,7 +5,14 @@ import ForumPost from "./forumPost";
 import Loader from "../loader";
 import { formatDate } from "../../utils/date";
 
-export default function ForumTable({ posts, user, page, setPage, pageCount }) {
+export default function ForumTable({
+  posts,
+  user,
+  page,
+  setPage,
+  pageCount,
+  postsError,
+}) {
   const [viewTable, setViewTable] = useState(true);
   const [viewPost, setViewPost] = useState(false);
   const [activePost, setActivePost] = useState({});
@@ -76,7 +83,7 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
                   <th>Author</th>
                 </tr>
               </thead>
-              {posts && posts.length ? (
+              {posts ? (
                 <tbody>
                   {posts.map((post, index) => {
                     return (
@@ -108,15 +115,19 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
                   })}
                 </tbody>
               ) : (
-                <tbody>
-                  <tr>
-                    <td colSpan={5}>
-                      <div className="w-full flex justify-center">
-                        <Loader />
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                <>
+                  {!postsError && (
+                    <tbody>
+                      <tr>
+                        <td colSpan={5}>
+                          <div className="w-full flex justify-center">
+                            <Loader />
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  )}
+                </>
               )}
             </table>
           </div>
@@ -141,9 +152,7 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
               </div>
             </div>
           )}
-          {posts && posts.length === 0 && (
-            <div className="flex justify-center mt-10">No posts</div>
-          )}
+          {!posts && <div className="flex justify-center mt-10">No posts</div>}
         </>
       </CSSTransition>
       <CSSTransition

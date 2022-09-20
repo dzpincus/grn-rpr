@@ -32,7 +32,7 @@ export default function Forum() {
   const postsPath =
     "/api/posts/?" +
     new URLSearchParams({ skip: page * pageSize, take: pageSize });
-  const { data: posts, error: postError } = getSWR(postsPath);
+  const { data: posts, error: postsError } = getSWR(postsPath);
 
   const countPath = "/api/posts/count/";
   const { data: count, error: countError } = getSWR(countPath);
@@ -74,6 +74,7 @@ export default function Forum() {
               page={page}
               setPage={setPage}
               pageCount={Math.floor(count / pageSize)}
+              postsError={postsError}
             />
           </div>
         </div>
