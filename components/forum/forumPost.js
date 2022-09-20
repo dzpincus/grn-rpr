@@ -77,7 +77,7 @@ export default function ForumPost({ user, post, toggle, deletePost }) {
                 width={24}
               />
             </span>
-            {post.authorId === user.id && (
+            {post.author.email === user.email && (
               <a
                 onClick={() => {
                   if (
