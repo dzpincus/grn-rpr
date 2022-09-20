@@ -67,7 +67,7 @@ export default function ForumTable({
     <>
       <CSSTransition
         in={viewTable}
-        timeout={500}
+        timeout={300}
         classNames="fade-in-out"
         unmountOnExit
       >
@@ -157,7 +157,7 @@ export default function ForumTable({
       </CSSTransition>
       <CSSTransition
         in={viewPost}
-        timeout={500}
+        timeout={300}
         classNames="fade-in-out"
         unmountOnExit
       >

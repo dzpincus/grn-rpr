@@ -3,12 +3,12 @@
 }
 .fade-in-out-enter-active {
   opacity: 1;
-  transition: ease-in 500ms;
+  transition: ease-in 200ms;
 }
 .fade-in-out-exit {
   opacity: 0.75;
 }
 .fade-in-out-exit-active {
   opacity: 0;
-  transition: ease-in 500ms;
+  transition: ease-in 200ms;
 }
