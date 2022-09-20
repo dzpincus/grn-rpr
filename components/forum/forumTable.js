@@ -76,7 +76,7 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
                   <th>Author</th>
                 </tr>
               </thead>
-              {posts ? (
+              {posts && posts ? (
                 <tbody>
                   {posts.map((post, index) => {
                     return (
@@ -140,6 +140,9 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
                 </button>
               </div>
             </div>
+          )}
+          {posts.length === 0 && (
+            <div className="flex justify-center mt-10">No posts</div>
           )}
         </>
       </CSSTransition>

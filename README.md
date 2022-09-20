@@ -17,6 +17,6 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 Using planetscale for development and production database branch control
 Using prisma for an ORM
 
-Setup database connection with `pscale connect grn-rpr main --port 3309`
+Setup database connection with `pscale connect grn-rpr dev --port 3309`
 
 ## Deployed on Vercel
