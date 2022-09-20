@@ -13,7 +13,6 @@ export default function Header() {
   const pages = [
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
-    { title: "Creative Healing", url: "/creative-healing" },
     { title: "Forum", url: "/forum" },
   ];
 
