@@ -12,6 +12,7 @@ import ForumForm from "../components/forum/forumForm";
 
 import { titleItalics } from "../utils/text";
 import { getSWR } from "../utils/requests";
+import useSWR, { useSWRConfig } from "swr";
 import Link from "next/link";
 
 export default function Forum() {
@@ -29,10 +30,16 @@ export default function Forum() {
       setModalOpen(false);
     }
   };
+  const { mutate } = useSWRConfig();
+
   const postsPath =
     "/api/posts/?" +
     new URLSearchParams({ skip: page * pageSize, take: pageSize });
   const { data: posts, error: postsError } = getSWR(postsPath);
+
+  const mutatePosts = function () {
+    mutate(postsPath);
+  };
 
   const countPath = "/api/posts/count/";
   const { data: count, error: countError } = getSWR(countPath);
@@ -75,6 +82,7 @@ export default function Forum() {
               setPage={setPage}
               pageCount={Math.floor(count / pageSize)}
               postsError={postsError}
+              mutatePosts={mutatePosts}
             />
           </div>
         </div>

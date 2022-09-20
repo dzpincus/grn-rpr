@@ -12,6 +12,7 @@ export default function ForumTable({
   setPage,
   pageCount,
   postsError,
+  mutatePosts,
 }) {
   const [viewTable, setViewTable] = useState(true);
   const [viewPost, setViewPost] = useState(false);
@@ -30,16 +31,13 @@ export default function ForumTable({
       }, 500);
     }
   };
-
   const deletePost = async function (postId) {
     {
       await fetch(`api/posts/${postId}`, {
         method: "DELETE",
       }).then((response) => {
         toggle();
-        console.log(posts.length);
-        posts = posts.filter((p) => p.id != postId);
-        console.log(posts.length);
+        mutatePosts();
       });
     }
   };
@@ -152,7 +150,9 @@ export default function ForumTable({
               </div>
             </div>
           )}
-          {!posts && <div className="flex justify-center mt-10">No posts</div>}
+          {posts && posts.length === 0 && (
+            <div className="flex justify-center mt-10">No posts</div>
+          )}
         </>
       </CSSTransition>
       <CSSTransition
