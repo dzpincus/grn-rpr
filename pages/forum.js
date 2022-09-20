@@ -12,8 +12,9 @@ import ForumForm from "../components/forum/forumForm";
 
 import { titleItalics } from "../utils/text";
 import { getSWR } from "../utils/requests";
-import useSWR, { useSWRConfig } from "swr";
+import { useSWRConfig } from "swr";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Forum() {
   const { user, error, isLoading } = useUser();
@@ -136,6 +137,9 @@ export default function Forum() {
 Forum.getLayout = function getLayout(page) {
   return (
     <>
+      <Head>
+        <title>The Grin Reaper | Forum</title>
+      </Head>
       <div className="flex flex-col min-h-screen w-full">{page}</div>
     </>
   );
