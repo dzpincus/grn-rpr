@@ -10,7 +10,7 @@ import { formatDate } from "../../utils/date";
 
 import ForumComments from "./forumComments";
 
-export default function ForumPost({ post, toggle, deletePost }) {
+export default function ForumPost({ user, post, toggle, deletePost }) {
   const [comments, setComments] = useState(post.comments);
 
   const postContent = DOMPurify.sanitize(post.content);
@@ -77,18 +77,20 @@ export default function ForumPost({ post, toggle, deletePost }) {
                 width={24}
               />
             </span>
-            <a
-              onClick={() => {
-                if (
-                  window.confirm("Are you sure you want to delete this post?")
-                ) {
-                  deletePost(post.id);
-                }
-              }}
-              className="cursor-pointer active:text-secondary active:text-sm"
-            >
-              <FontAwesomeIcon icon={faTrashCan} />
-            </a>
+            {post.authorId === user.id && (
+              <a
+                onClick={() => {
+                  if (
+                    window.confirm("Are you sure you want to delete this post?")
+                  ) {
+                    deletePost(post.id);
+                  }
+                }}
+                className="cursor-pointer active:text-secondary active:text-sm"
+              >
+                <FontAwesomeIcon icon={faTrashCan} />
+              </a>
+            )}
           </div>
           <h2 className="card-title text-5xl">{post.title} </h2>
           <div className="flex items-center mt-4">

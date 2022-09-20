@@ -155,6 +155,7 @@ export default function ForumTable({ posts, user, page, setPage, pageCount }) {
         <>
           <div className="shadow-2xl rounded-2xl">
             <ForumPost
+              user={user}
               post={activePost}
               toggle={toggle}
               deletePost={deletePost}
