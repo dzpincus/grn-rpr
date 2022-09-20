@@ -140,7 +140,7 @@ Forum.getLayout = function getLayout(page) {
       <Head>
         <title>The Grin Reaper | Forum</title>
       </Head>
-      <div className="flex flex-col min-h-screen w-full">{page}</div>
+      <div className="flex flex-col min-h-screen min-w-full">{page}</div>
     </>
   );
 };

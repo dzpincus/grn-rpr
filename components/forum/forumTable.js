@@ -71,7 +71,7 @@ export default function ForumTable({
       >
         <>
           <div className="shadow-2xl rounded-2xl">
-            <table className="table w-full">
+            <table className="table-compact md:table w-full">
               <thead>
                 <tr className="text-right">
                   <th className="text-left">Title</th>
