@@ -12,7 +12,7 @@ export const formatDate = function (dateString, withPrep) {
     }
     return `${time}`;
   }
-  const date = d.toLocateString("lookup", {
+  const date = d.toLocaleString("lookup", {
     dataStyle: "short",
     timeStyle: "short",
   });
